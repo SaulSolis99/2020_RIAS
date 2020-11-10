@@ -1,0 +1,33 @@
+<!--
+Archivo:  ejTablas.html
+Objetivo: ejemplo de creación de elementos a tiempo de ejecución con ExtJS
+Autor:    BAOZ
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Ejemplo tablas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../../jslib/theme-triton/resources/theme-triton-all.css">
+        <script type="text/javascript" src="../../jslib/ext-all.js"></script>
+        <script type="text/javascript" src="../../jslib/theme-triton/theme-triton.js"></script>
+        <script type="text/javascript" src="js/tablas.js"></script>
+	</head>
+	<body>
+		<form>
+			<input type="button" value="Colocar tabla" 
+			onclick="creaTabla();this.disabled=true;"/>
+			<br/>
+			<div id="initab">
+			</div>
+			Clave <input type="text" id="txtCve" name="txtCve" style="visibility:hidden"/><br/>
+			Nombre <input type="text" id="txtNom" name="txtNom" style="visibility:hidden"/><br/>
+			<input id="btnAgrega" type="button" value="Agrega" 
+			onclick="agrega(txtCve, txtNom);" style="visibility:hidden"/>
+			<input type="submit" value="Limpiar"/>
+			<input id="btnConsultar" type="button" value="Consultar" 
+			onclick="consulta();" style="visibility:hidden"/>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nihongo</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  $( function() {
+    $( "#resizable" ).resizable({
+      animate: true
+    });
+  } );
+  $( function() {
+    $( document ).tooltip();
+  } );
+  </script>
+  <style>
+  #droppable { width: 250px; height: 250px; padding: 0.5em; float: left; margin: 10px; }
+  #draggable, #draggable-nonvalid { width: 200px; height: 200px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+  #sortable li span { position: absolute; margin-left: -1.3em; }
+  #accordion { height: 30%; width:100%;  padding: 0.5em; float: left; margin: 10px; }
+  #resizable { width: 150px; height: 230px; padding: 0.5em; }
+  #resizable h3 { text-align: center; margin: 0; }
+  .ui-resizable-helper { border: 1px dotted gray; }
+  label {
+    display: inline-block;
+    width: 5em;
+  }
+  </style>
+  <script>
+  $( function() {
+    $( "#dialog" ).dialog();
+  } );
+  $( function() {
+    $( "#draggable, #draggable-nonvalid" ).draggable();
+    $( "#droppable" ).droppable({
+      accept: "#draggable",
+      classes: {
+        "ui-droppable-active": "ui-state-active",
+        "ui-droppable-hover": "ui-state-hover"
+      },
+      drop: function( event, ui ) {
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html( "Dropped!" );
+      }
+    });
+  } );
+  $( function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+    $( "#accordion" ).accordion();
+    $( "input" ).checkboxradio();
+  } );
+</script><script>
+  $( function() {
+    var availableTags = [
+      "Aleman",
+      "Arabe",
+      "Chino Mandarin",
+      "Coreano",
+      "Frances",
+      "Ingles",
+      "Italiano",
+      "Ruso"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+</script><script>
+   $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+</head>
+<body>
+ <header> <center><h1>Nihongo</h1></center></header>
+ <div id="dialog" title="Indicaciones">
+  <p>En la siguiente pagina se presentan actividades e informacion referente a japones basico.</p>
+</div>
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Drag & Drop</a></li>
+    <li><a href="#tabs-2">Sortable</a></li>
+    <li><a href="#tabs-3">Resizable</a></li>
+    <li><a href="#tabs-4">Accordion</a></li>
+    <li><a href="#tabs-5">Information</a></li>
+  </ul>
+
+  <div id="tabs-1">
+    <h3>Identifica el Kanji que corresponde a la imagen y arrastralo a la imagen</h3><br><br>
+    <div id="droppable" class="ui-widget-header">
+ 		 <img src="images/kasa.jpg" alt="kasa desu" height="100%">
+		</div>
+		<div id="draggable" class="ui-widget-content">
+  		<img src="images/kanji1.jpg" alt="kasa" height="95%">
+		</div>
+		<div id="draggable-nonvalid" class="ui-widget-content">
+  		<img src="images/kanji2.jpg" alt="kagi" height="95%">
+		</div>
+		<div id="draggable-nonvalid" class="ui-widget-content">
+  		<img src="images/kanji3.png" alt="kuruma" height="95%">
+		</div>
+		<div id="draggable-nonvalid" class="ui-widget-content">
+  		<img src="images/kanji4.png" alt="hon" height="95%">
+		</div>
+  </div>
+
+  <div id="tabs-2">
+      <h3>Ordena correctamente los dias de la Semana</h3>
+   		<ul id="sortable">
+       <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Nanoka</li>
+       <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Mikka</li>
+       <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Yokka</li>
+       <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Tsuitachi</li>
+       <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Muika</li>
+       <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Itsuka</li>
+       <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Futsuka</li>
+       <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Tooka</li>
+       <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Kokonoka</li>
+       <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Youka</li>
+      </ul>
+  </div>
+  <div id="tabs-3">
+    <h3>Hiragana y Katakana</h3>
+    <div id="resizable" class="ui-widget-content">
+  <h3 class="ui-widget-header"><img src="images/silabario.jpg" alt="Silabario" width="100%" height="100%"></h3>
+</div>
+  </div>
+
+  <div id="tabs-4">
+    <div id="accordion">
+  <h3>Hiragana</h3>
+  <div>
+    <td>
+    El hiragana, es un alfabeto compuesto por 46 grafías formadas cada una por una sílaba que agrupa una vocal y una consonante.
+    El hiragana es la base de las estructuras gramaticales y flexiones verbales del idioma asiático. Aprendiendo y dominando este alfabeto uno sería capaz de escribir y expresarse correctamente y de forma escrita en japonés.
+    </td>
+  </div>
+  <h3>Katakana</h3>
+  <div>
+    <td>
+    El katakana es uno de los dos silabarios empleados en la escritura japonesa, junto con el hiragana. Su invención se atribuye al monje Kūkai, o Kobo Daishi. También se suele usar el vocablo katakana para referirse a cualquiera de los caracteres de dicho silabario.
+    </td>
+  </div>
+  <h3>Kanji</h3>
+  <div>
+    <td>
+    Los kanjis son los sinogramas utilizados en la escritura del idioma japonés. Los kanji son uno de los tres sistemas de escritura japoneses junto con los silabarios hiragana y katakana, para los que existen reglas generales a la hora de combinarlos, pues cada uno tiene una función diferente.
+    </td>
+  </div>
+  <h3>Rōmaji</h3>
+  <div>
+    <td>
+    El rōmaji, en japonés se refiere en grandes rasgos al alfabeto latino. En Occidente, se suele emplear este término para referirse a la escritura de la lengua japonesa en letras romanas o latinas en contraste con la mezcla habitual de kanji, hiragana y katakana.
+    </td>
+  </div>
+</div>
+  </div>
+
+  <div id="tabs-5">
+    <h3>Ingresa tu Información</h3>
+  <label for="nombre">Nombre</label><input id="nombre" title="Ingresa primer nombre y primer apellido"><br><br>
+  <div class="widget"><fieldset>
+    <legend>Selecciona un genero </legend>
+    <input type="radio" name="radio-1" id="radio-1">
+    <label for="radio-1">Mujer</label>
+    <input type="radio" name="radio-1" id="radio-2">
+    <label for="radio-2">Hombre</label>
+    <input type="radio" name="radio-1" id="radio-3">
+    <label for="radio-3">No especificar</label>
+  </fieldset></div><br>
+  <label for="tags">Otro idioma: </label>
+  <input id="tags">
+  <p>Fecha de Nacimiento: <input type="text" id="datepicker"></p>
+  </div>
+
+</div>
+<br><br>
+<footer><center>| Equipo | Illescas Velázquez Raúl | Gonzalez Muñoz José Sebastian | Solis Lagunes Oscar Saul | RIAS</center></footer>
+</body>
+</html>

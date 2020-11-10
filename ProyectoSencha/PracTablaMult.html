@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tablas De Multiplicar </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html"/>
+    <link rel="stylesheet" type="text/css" href="../../jslib/resources/theme-triton-all.css">
+    <script type="text/javascript" src="../../jslib/ext-all.js"></script>
+    <script type="text/javascript" src="../../jslib/theme-triton.js"></script>  
+    <script type="text/javascript" src="../../jslib/locale-es.js"></script>
+        
+    <script type="text/javascript">
+        function generar(){
+			var sContenido = "<table id='tbl'>";
+			for(i=0; i<7; i++){
+            sContenido = sContenido+"<tr><td>";
+switch(i){
+        
+case 0: sContenido = sContenido + "</td><td> Lunes </td><td></td><td><input type='text' id='res0'>";
+            break;
+case 1: sContenido = sContenido + "</td><td> Martes </td><td></td><td><input type='text' id='res1'>";
+            break;
+case 2: sContenido = sContenido + "</td><td> Miercoles </td><td></td><td><input type='text' id='res2'>";
+            break;
+case 3: sContenido = sContenido + "</td><td> Jueves </td><td></td><td><input type='text' id='res3'>";
+            break;
+case 4: sContenido = sContenido + "</td><td> Viernes </td><td></td><td><input type='text' id='res4'>";
+            break;
+case 5: sContenido = sContenido + "</td><td> Sabado </td><td></td><td><input type='text' id='res5'>";
+            break;
+case 6: sContenido = sContenido + "</td><td> Domingo </td><td></td><td><input type='text' id='res6'>";
+            break;
+}
+sContenido = sContenido+"</td></tr>";
+            }
+sContenido = sContenido + "</table>"
+Ext.get("initab").insertHtml("afterBegin", sContenido);
+                    }
+
+function calculo(){
+var prom = 0;
+var res = [];
+    
+    for(i=1; i<8; i++){
+        switch(i){
+            case 1: res[i] =Ext.get("res0").getValue();
+				if(("Guetsuyoubi")==res[i])
+				    prom = prom + 1; break;
+            case 2: res[i] = Ext.get("res1").getValue();
+				if(("Kayoubi")==res[i])
+				    prom = prom + 1; break;
+            case 3: res[i] = Ext.get("res2").getValue();
+				if(("Suiyoubi")==res[i])
+				    prom = prom + 1; break;
+            case 4: res[i] = Ext.get("res3").getValue();
+				if(("Mokuyoubi")==res[i])
+				    prom = prom + 1; break;
+            case 5: res[i] = Ext.get("res4").getValue();
+                if(("Kinyoubi")==res[i])
+				    prom = prom + 1; break;
+            case 6: res[i] = Ext.get("res5").getValue();
+				if(("Doyoubi")==res[i])
+				    prom = prom + 1; break;
+            case 7: res[i] = Ext.get("res6").getValue();
+				if(("Nichiyoubi")==res[i])
+				}
+			}
+Ext.get("calif").insertHtml("afterBegin", "Aciertos: " + prom);
+        }
+</script>
+</head>
+    
+<body>
+<center> 
+<form>
+<br/><br/>
+    <h1>Dias de la Semana en Japones</h1>
+	<input type="button" value="Generar Tabla"  onclick="generar();this.disabled=true;" /><br/>
+	<div id="initab" overflow:auto;>
+	</div>
+    <br>
+	<input type="button" value="Evaluar Tabla" onclick="calculo();this.disabled=true;"><br/>
+	<div id="calif">
+	</div>
+    <br>
+	<input type="submit" value="Volver a Intentar"/>
+	</form> 
+    </center>
+    
+</body>
+</html>
